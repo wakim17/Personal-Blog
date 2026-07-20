@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Garden Feed</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner container">
+        <a href="/" class="site-title">Digital Garden</a>
+        <nav class="site-nav">
+          <a href="/about/">About</a>
+          <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      
+
+
+<div class="homepage-container container">
+  <section class="category-filters">
+    <ul class="filter-list" id="category-filters">
+      
+        <li>
+          <button class="filter-btn active" data-category="All">All</button>
+        </li>
+      
+        <li>
+          <button class="filter-btn " data-category="Theology &amp; Religion">Theology &amp; Religion</button>
+        </li>
+      
+        <li>
+          <button class="filter-btn " data-category="Health &amp; Lifestyle">Health &amp; Lifestyle</button>
+        </li>
+      
+        <li>
+          <button class="filter-btn " data-category="Science">Science</button>
+        </li>
+      
+        <li>
+          <button class="filter-btn " data-category="Technology &amp; Innovation">Technology &amp; Innovation</button>
+        </li>
+      
+        <li>
+          <button class="filter-btn " data-category="History">History</button>
+        </li>
+      
+        <li>
+          <button class="filter-btn " data-category="Theory of Knowledge">Theory of Knowledge</button>
+        </li>
+      
+        <li>
+          <button class="filter-btn " data-category="Politics">Politics</button>
+        </li>
+      
+        <li>
+          <button class="filter-btn " data-category="Philosophy">Philosophy</button>
+        </li>
+      
+        <li>
+          <button class="filter-btn " data-category="Creative writing">Creative writing</button>
+        </li>
+      
+    </ul>
+  </section>
+
+  <section class="feed-grid" id="article-feed">
+    
+      <article class="card" data-category="Theory of Knowledge">
+        
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="badge primary-category">Theory of Knowledge</span>
+            <time>20 Jul 2026</time>
+          </div>
+          <h2 class="card-title"><a href="/articles/sample-post/">The Nature of Knowledge in the Digital Age</a></h2>
+          <p class="card-excerpt">An exploration into how we cultivate and store knowledge when information is ubiquitous but wisdom is scarce.</p>
+          
+            <div class="card-tags">
+              
+                <span class="badge sub-tag">Epistemology</span>
+              
+                <span class="badge sub-tag">Digital Gardens</span>
+              
+            </div>
+          
+        </div>
+      </article>
+    
+      <article class="card" data-category="Theory of Knowledge">
+        
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="badge primary-category">Theory of Knowledge</span>
+            <time>19 Jul 2026</time>
+          </div>
+          <h2 class="card-title"><a href="/articles/sample-post-2/">Second Post about Gardens</a></h2>
+          <p class="card-excerpt">Just another post.</p>
+          
+            <div class="card-tags">
+              
+                <span class="badge sub-tag">Epistemology</span>
+              
+            </div>
+          
+        </div>
+      </article>
+    
+  </section>
+</div>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 My Digital Garden</p>
+      </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

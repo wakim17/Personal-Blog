@@ -1,0 +1,67 @@
+---
+layout: base.njk
+---
+
+<article class="post-container">
+  <header class="post-header">
+    <div class="post-meta">
+      <span class="badge primary-category">{{ primary_category }}</span>
+      <time datetime="{{ date }}">{{ date | postDate }}</time>
+    </div>
+    <h1 class="post-title">{{ title }}</h1>
+    {% if sub_tags %}
+      <div class="post-tags">
+        {% for tag in sub_tags %}
+          <span class="badge sub-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+
+  {% if thumbnail %}
+    <figure class="post-thumbnail">
+      <img src="{{ thumbnail }}" alt="Thumbnail for {{ title }}">
+    </figure>
+  {% endif %}
+
+  <div class="post-body">
+    {{ content | safe }}
+  </div>
+</article>
+
+<section class="related-plantings container">
+  <h2>Related Plantings</h2>
+  <div class="related-grid">
+    {% set relatedCount = 0 %}
+    {% for post in collections.articles %}
+      {% if post.url != page.url %}
+        {% set isRelated = false %}
+        {% if post.data.primary_category == primary_category %}
+          {% set isRelated = true %}
+        {% endif %}
+        
+        {% if not isRelated and post.data.sub_tags and sub_tags %}
+          {% for t1 in post.data.sub_tags %}
+            {% for t2 in sub_tags %}
+              {% if t1 == t2 %}
+                {% set isRelated = true %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% endif %}
+
+        {% if isRelated and relatedCount < 3 %}
+          <div class="card">
+            <div class="card-meta">
+              <span class="badge primary-category">{{ post.data.primary_category }}</span>
+              <time>{{ post.data.date | postDate }}</time>
+            </div>
+            <h3 class="card-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+            <p class="card-excerpt">{{ post.data.excerpt }}</p>
+          </div>
+          {% set relatedCount = relatedCount + 1 %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

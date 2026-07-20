@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: wakim17/Personal-Blog
+  branch: main
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "src/articles"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Thumbnail Image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Primary Category", name: "primary_category", widget: "select", options: ["Theology & Religion", "Health & Lifestyle", "Science", "Technology & Innovation", "History", "Theory of Knowledge", "Politics", "Philosophy", "Creative writing"]}
+      - {label: "Sub Tags", name: "sub_tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}, required: false}
+      - {label: "Body", name: "body", widget: "markdown"}

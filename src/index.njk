@@ -1,0 +1,45 @@
+---
+layout: base.njk
+title: Digital Garden Feed
+---
+
+{% set categories = ["All", "Theology & Religion", "Health & Lifestyle", "Science", "Technology & Innovation", "History", "Theory of Knowledge", "Politics", "Philosophy", "Creative writing"] %}
+
+<div class="homepage-container container">
+  <section class="category-filters">
+    <ul class="filter-list" id="category-filters">
+      {% for category in categories %}
+        <li>
+          <button class="filter-btn {% if loop.first %}active{% endif %}" data-category="{{ category }}">{{ category }}</button>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="feed-grid" id="article-feed">
+    {% for post in collections.articles %}
+      <article class="card" data-category="{{ post.data.primary_category }}">
+        {% if post.data.thumbnail %}
+          <div class="card-image">
+            <img src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}">
+          </div>
+        {% endif %}
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="badge primary-category">{{ post.data.primary_category }}</span>
+            <time>{{ post.data.date | postDate }}</time>
+          </div>
+          <h2 class="card-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+          <p class="card-excerpt">{{ post.data.excerpt }}</p>
+          {% if post.data.sub_tags %}
+            <div class="card-tags">
+              {% for tag in post.data.sub_tags %}
+                <span class="badge sub-tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+</div>
