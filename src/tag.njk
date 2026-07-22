@@ -1,0 +1,53 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+    - tagList
+    - articles
+  addAllPagesToCollections: true
+layout: base.njk
+eleventyComputed:
+  title: Tagged “{{ tag }}”
+permalink: /tags/{{ tag | slugify }}/
+---
+
+<div class="homepage-container container">
+  <section class="about-section" style="margin-bottom: var(--spacing-xl); padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--border-color);">
+    <h1 style="margin-bottom: var(--spacing-md); font-size: 2rem;">Articles tagged with "{{ tag }}"</h1>
+    <p style="font-size: 1.15rem; max-width: 65ch; opacity: 0.9;">
+      <a href="/topics/">← Back to all topics</a>
+    </p>
+  </section>
+
+  <section class="feed-grid">
+    {% set taglist = collections[tag] %}
+    {% for post in taglist | reverse %}
+      <article class="card" data-category="{{ post.data.primary_category }}">
+        {% if post.data.thumbnail %}
+          <div class="card-image">
+            <img src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}">
+          </div>
+        {% endif %}
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="badge primary-category">{{ post.data.primary_category }}</span>
+            {% if post.data.growth_stage %}
+              <span class="badge growth-stage" title="{{ post.data.growth_stage }}">
+                {% if post.data.growth_stage == 'Seedling' %}🌱{% elif post.data.growth_stage == 'Budding' %}🌿{% elif post.data.growth_stage == 'Evergreen' %}🌳{% endif %}
+              </span>
+            {% endif %}
+            <time>{{ post.data.date | postDate }}</time>
+          </div>
+          <h2 class="card-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+          <p class="card-excerpt">{{ post.data.excerpt }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+</div>

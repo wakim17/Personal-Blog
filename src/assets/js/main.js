@@ -65,4 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  /* --- Reading Progress Vine Logic --- */
+  const progressVine = document.getElementById('progress-vine');
+  
+  if (progressVine) {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercentage = (scrollTop / scrollHeight) * 100;
+      progressVine.style.width = scrollPercentage + '%';
+    });
+  }
 });

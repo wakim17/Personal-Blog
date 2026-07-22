@@ -4,7 +4,8 @@ title: "The Nature of Knowledge in the Digital Age"
 date: 2026-07-20T10:00:00Z
 excerpt: "An exploration into how we cultivate and store knowledge when information is ubiquitous but wisdom is scarce."
 primary_category: "Theory of Knowledge"
-sub_tags:
+growth_stage: "Evergreen"
+tags:
   - "Epistemology"
   - "Digital Gardens"
 ---

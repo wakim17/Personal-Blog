@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title | default("My Personal Blog") }}</title>
+    <title>Tagged “Epistemology”</title>
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,12 +27,60 @@
     </header>
 
     <main class="main-content">
-      {{ content | safe }}
+      
+<div class="homepage-container container">
+  <section class="about-section" style="margin-bottom: var(--spacing-xl); padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--border-color);">
+    <h1 style="margin-bottom: var(--spacing-md); font-size: 2rem;">Articles tagged with "Epistemology"</h1>
+    <p style="font-size: 1.15rem; max-width: 65ch; opacity: 0.9;">
+      <a href="/topics/">← Back to all topics</a>
+    </p>
+  </section>
+
+  <section class="feed-grid">
+    
+    
+      <article class="card" data-category="Theory of Knowledge">
+        
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="badge primary-category">Theory of Knowledge</span>
+            
+              <span class="badge growth-stage" title="Evergreen">
+                🌳
+              </span>
+            
+            <time>20 Jul 2026</time>
+          </div>
+          <h2 class="card-title"><a href="/articles/sample-post/">The Nature of Knowledge in the Digital Age</a></h2>
+          <p class="card-excerpt">An exploration into how we cultivate and store knowledge when information is ubiquitous but wisdom is scarce.</p>
+        </div>
+      </article>
+    
+      <article class="card" data-category="Theory of Knowledge">
+        
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="badge primary-category">Theory of Knowledge</span>
+            
+              <span class="badge growth-stage" title="Seedling">
+                🌱
+              </span>
+            
+            <time>19 Jul 2026</time>
+          </div>
+          <h2 class="card-title"><a href="/articles/sample-post-2/">Second Post about Gardens</a></h2>
+          <p class="card-excerpt">Just another post.</p>
+        </div>
+      </article>
+    
+  </section>
+</div>
+
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <p>&copy; {% set currentYear = 2026 %}{{ currentYear }} My Personal Blog</p>
+        <p>&copy; 2026 My Personal Blog</p>
       </div>
     </footer>
 

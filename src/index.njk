@@ -1,45 +1,45 @@
 ---
 layout: base.njk
-title: Digital Garden Feed
+title: About Me
 ---
 
-{% set categories = ["All", "Theology & Religion", "Health & Lifestyle", "Science", "Technology & Innovation", "History", "Theory of Knowledge", "Politics", "Philosophy", "Creative writing"] %}
-
 <div class="homepage-container container">
-  <section class="category-filters">
-    <ul class="filter-list" id="category-filters">
-      {% for category in categories %}
-        <li>
-          <button class="filter-btn {% if loop.first %}active{% endif %}" data-category="{{ category }}">{{ category }}</button>
-        </li>
-      {% endfor %}
-    </ul>
+  <section class="about-section" style="margin-bottom: var(--spacing-xl); padding-bottom: var(--spacing-xl);">
+    <h1 style="margin-bottom: var(--spacing-md); font-size: 2rem;">Cultivating Thoughts</h1>
+    <p style="font-size: 1.15rem; max-width: 65ch; opacity: 0.9;">Welcome to my personal blog. This is a place where I cultivate my thoughts, essays, and notes across various topics ranging from Theology & Religion to Science and Philosophy.</p>
   </section>
 
-  <section class="feed-grid" id="article-feed">
-    {% for post in collections.articles %}
-      <article class="card" data-category="{{ post.data.primary_category }}">
-        {% if post.data.thumbnail %}
-          <div class="card-image">
-            <img src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}">
-          </div>
-        {% endif %}
-        <div class="card-content">
-          <div class="card-meta">
-            <span class="badge primary-category">{{ post.data.primary_category }}</span>
-            <time>{{ post.data.date | postDate }}</time>
-          </div>
-          <h2 class="card-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-          <p class="card-excerpt">{{ post.data.excerpt }}</p>
-          {% if post.data.sub_tags %}
-            <div class="card-tags">
-              {% for tag in post.data.sub_tags %}
-                <span class="badge sub-tag">{{ tag }}</span>
-              {% endfor %}
-            </div>
-          {% endif %}
-        </div>
-      </article>
-    {% endfor %}
+  {% set seedlings = 0 %}
+  {% set buddings = 0 %}
+  {% set evergreens = 0 %}
+  {% for post in collections.articles %}
+    {% if post.data.growth_stage == 'Seedling' %}
+      {% set seedlings = seedlings + 1 %}
+    {% elif post.data.growth_stage == 'Budding' %}
+      {% set buddings = buddings + 1 %}
+    {% elif post.data.growth_stage == 'Evergreen' %}
+      {% set evergreens = evergreens + 1 %}
+    {% endif %}
+  {% endfor %}
+
+  <section class="garden-stats" style="margin-bottom: var(--spacing-xl);">
+    <h2 style="margin-bottom: var(--spacing-md); text-align: center;">Gardener's Dashboard</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">🌱</div>
+        <div class="stat-number">{{ seedlings }}</div>
+        <div class="stat-label">Seeds Planted</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🌿</div>
+        <div class="stat-number">{{ buddings }}</div>
+        <div class="stat-label">Budding Thoughts</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🌳</div>
+        <div class="stat-number">{{ evergreens }}</div>
+        <div class="stat-label">Evergreen Essays</div>
+      </div>
+    </div>
   </section>
 </div>
