@@ -54,7 +54,17 @@ permalink: /bible-study/
             <time datetime="{{ study.date.toISOString() }}">{{ study.date | postDate }}</time>
           </div>
           <h2 class="card-title"><a href="{{ study.url }}">{{ study.data.title }}</a></h2>
-          <p class="card-excerpt">{{ study.data.excerpt }}</p>
+          {% if study.data.excerpt %}
+            <details class="card-excerpt-dropdown">
+              <summary class="card-excerpt-summary">
+                <span>Excerpt</span>
+                <svg class="dropdown-chevron" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </summary>
+              <div class="card-excerpt-content">
+                <p>{{ study.data.excerpt }}</p>
+              </div>
+            </details>
+          {% endif %}
         </div>
       </article>
     {% else %}
