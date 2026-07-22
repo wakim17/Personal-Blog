@@ -1,4 +1,5 @@
 ---
+layout: post.njk
 title: A Slave's story
 date: 2018-06-15T15:43:00.000+02:00
 excerpt: Poem on a slave's perspective

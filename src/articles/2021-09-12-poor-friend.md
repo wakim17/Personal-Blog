@@ -1,4 +1,5 @@
 ---
+layout: post.njk
 title: Poor Friend
 date: 2021-09-12T15:47:00.000+02:00
 excerpt: Creative piece of why suicide is not the right way to go.
