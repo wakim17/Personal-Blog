@@ -6,19 +6,29 @@ title: My Writings
 {% set categories = ["All", "Theology & Religion", "Health & Lifestyle", "Science", "Technology & Innovation", "History", "Theory of Knowledge", "Politics", "Philosophy", "Creative writing"] %}
 
 <div class="homepage-container container">
-  <section class="category-filters">
-    <ul class="filter-list" id="category-filters">
-      {% for category in categories %}
-        <li>
-          <button class="filter-btn {% if loop.first %}active{% endif %}" data-category="{{ category }}">{{ category }}</button>
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
+  <div class="filter-sort-bar">
+    <section class="category-filters">
+      <ul class="filter-list" id="category-filters">
+        {% for category in categories %}
+          <li>
+            <button class="filter-btn {% if loop.first %}active{% endif %}" data-category="{{ category }}">{{ category }}</button>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <div class="sort-controls">
+      <label for="sort-order" class="sort-label">Sort:</label>
+      <select id="sort-order" class="sort-select" aria-label="Sort writings by date">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+      </select>
+    </div>
+  </div>
 
   <section class="feed-grid" id="article-feed">
     {% for post in collections.articles %}
-      <article class="card" data-category="{{ post.data.primary_category }}">
+      <article class="card" data-category="{{ post.data.primary_category }}" data-date="{{ post.date.toISOString() }}">
         {% if post.data.thumbnail %}
           <div class="card-image">
             <img src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}">
@@ -27,12 +37,7 @@ title: My Writings
         <div class="card-content">
           <div class="card-meta">
             <span class="badge primary-category">{{ post.data.primary_category }}</span>
-            {% if post.data.growth_stage %}
-              <span class="badge growth-stage" title="{{ post.data.growth_stage }}">
-                {% if post.data.growth_stage == 'Seedling' %}🌱{% elif post.data.growth_stage == 'Budding' %}🌿{% elif post.data.growth_stage == 'Evergreen' %}🌳{% endif %}
-              </span>
-            {% endif %}
-            <time>{{ post.data.date | postDate }}</time>
+            <time datetime="{{ post.date.toISOString() }}">{{ post.data.date | postDate }}</time>
           </div>
           <h2 class="card-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
           <p class="card-excerpt">{{ post.data.excerpt }}</p>

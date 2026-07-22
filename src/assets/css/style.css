@@ -141,10 +141,49 @@ img {
   padding-top: var(--spacing-xl);
 }
 
-.category-filters {
+.filter-sort-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
   margin-bottom: var(--spacing-xl);
+}
+
+.category-filters {
+  margin-bottom: 0;
   overflow-x: auto;
   padding-bottom: var(--spacing-sm);
+  flex: 1;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
+.sort-label {
+  opacity: 0.85;
+}
+
+.sort-select {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--border-radius);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.sort-select:focus, .sort-select:hover {
+  border-color: var(--accent-color);
 }
 
 .filter-list {
@@ -211,7 +250,8 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-sm);
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
   font-family: var(--font-sans);
   font-size: 0.85rem;
   color: var(--text-color);
@@ -263,6 +303,11 @@ img {
   max-width: var(--reading-width);
   margin: var(--spacing-xl) auto;
   padding: 0 var(--spacing-md);
+  transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.post-container.wide-view {
+  max-width: 1100px;
 }
 
 .post-header {
@@ -279,6 +324,27 @@ img {
   font-family: var(--font-sans);
   font-size: 0.9rem;
   opacity: 0.8;
+  flex-wrap: wrap;
+}
+
+.view-toggle-btn {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 0.25rem 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.view-toggle-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
 }
 
 .post-title {
@@ -366,60 +432,17 @@ img {
   display: none !important;
 }
 
-/* Gardener's Dashboard Stats */
-.garden-stats {
-  background-color: var(--card-bg);
-  padding: var(--spacing-lg);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-md);
-  text-align: center;
-}
-
-.stat-card {
-  padding: var(--spacing-md);
-  background-color: var(--bg-color);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-}
-
-.stat-icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-sm);
-}
-
-.stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  font-family: var(--font-sans);
-  color: var(--accent-color);
-  margin-bottom: var(--spacing-sm);
-}
-
-.stat-label {
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.8;
-}
-
-/* Reading Progress Vine */
-#progress-vine {
+/* Reading Progress Bar */
+#progress-bar {
   position: fixed;
   top: 0;
   left: 0;
   width: 0%;
   height: 4px;
-  background-color: #4CAF50; /* Vine green */
+  background-color: var(--accent-color);
   z-index: 1000;
   transition: width 0.1s ease;
-  box-shadow: 0 0 8px #4CAF50;
+  box-shadow: 0 0 8px var(--accent-color);
 }
 
 /* Post Taxonomy Footer */

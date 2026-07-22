@@ -1,0 +1,63 @@
+---
+layout: base.njk
+title: Bible Study
+permalink: /bible-study/
+---
+
+{% set studyCategories = ["All", "Jesus' Parables", "Gospel Meditations", "Old Testament Surveys", "Epistles & Doctrine", "Psalms & Wisdom", "General Study"] %}
+
+<div class="homepage-container container">
+  <header class="section-intro" style="margin-bottom: var(--spacing-xl); text-align: center;">
+    <h1 style="font-size: 2.25rem; margin-bottom: var(--spacing-sm);">Bible Study Notes & Meditations</h1>
+    <p style="font-size: 1.15rem; max-width: 65ch; margin: 0 auto; opacity: 0.9;">Expository notes, scripture meditations, and theological reflections exploring the eternal truth of God's Word.</p>
+  </header>
+
+  <div class="filter-sort-bar">
+    <section class="category-filters">
+      <ul class="filter-list" id="category-filters">
+        {% for cat in studyCategories %}
+          <li>
+            <button class="filter-btn {% if loop.first %}active{% endif %}" data-category="{{ cat }}">{{ cat }}</button>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <div class="sort-controls">
+      <label for="sort-order" class="sort-label">Sort:</label>
+      <select id="sort-order" class="sort-select" aria-label="Sort Bible studies by date">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+      </select>
+    </div>
+  </div>
+
+  <section class="feed-grid" id="article-feed">
+    {% for study in collections.bibleStudy %}
+      <article class="card" data-category="{{ study.data.study_category | default('General Study') }}" data-date="{{ study.date.toISOString() }}">
+        {% if study.data.thumbnail %}
+          <div class="card-image">
+            <img src="{{ study.data.thumbnail }}" alt="{{ study.data.title }}">
+          </div>
+        {% endif %}
+        <div class="card-content">
+          <div class="card-meta">
+            <div style="display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center;">
+              {% if study.data.study_category %}
+                <span class="badge primary-category">{{ study.data.study_category }}</span>
+              {% endif %}
+              {% if study.data.passage %}
+                <span class="badge" style="background-color: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-color);">📖 {{ study.data.passage }}</span>
+              {% endif %}
+            </div>
+            <time datetime="{{ study.date.toISOString() }}">{{ study.date | postDate }}</time>
+          </div>
+          <h2 class="card-title"><a href="{{ study.url }}">{{ study.data.title }}</a></h2>
+          <p class="card-excerpt">{{ study.data.excerpt }}</p>
+        </div>
+      </article>
+    {% else %}
+      <p style="text-align: center; grid-column: 1 / -1; opacity: 0.8; padding: 2rem;">No Bible study entries published yet.</p>
+    {% endfor %}
+  </section>
+</div>

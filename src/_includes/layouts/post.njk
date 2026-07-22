@@ -6,12 +6,16 @@ layout: base.njk
   <header class="post-header">
     <div class="post-meta">
       <span class="badge primary-category">{{ primary_category }}</span>
-      {% if growth_stage %}
-        <span class="badge growth-stage" title="{{ growth_stage }}">
-          {% if growth_stage == 'Seedling' %}🌱{% elif growth_stage == 'Budding' %}🌿{% elif growth_stage == 'Evergreen' %}🌳{% endif %} {{ growth_stage }}
-        </span>
-      {% endif %}
       <time datetime="{{ date }}">{{ date | postDate }}</time>
+      <button id="view-toggle" class="view-toggle-btn" aria-label="Toggle Wide Reading View" title="Toggle Wide Reading View">
+        <svg class="view-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <polyline points="9 21 3 21 3 15"></polyline>
+          <line x1="21" y1="3" x2="14" y2="10"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        </svg>
+        <span class="toggle-text">Wide View</span>
+      </button>
     </div>
     <h1 class="post-title">{{ title }}</h1>
   </header>
@@ -37,7 +41,7 @@ layout: base.njk
 </article>
 
 <section class="related-plantings container">
-  <h2>Related Plantings</h2>
+  <h2>Related Articles</h2>
   <div class="related-grid">
     {% set relatedCount = 0 %}
     {% for post in collections.articles %}
@@ -59,12 +63,19 @@ layout: base.njk
 
         {% if isRelated and relatedCount < 3 %}
           <div class="card">
-            <div class="card-meta">
-              <span class="badge primary-category">{{ post.data.primary_category }}</span>
-              <time>{{ post.data.date | postDate }}</time>
+            {% if post.data.thumbnail %}
+              <div class="card-image">
+                <img src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}">
+              </div>
+            {% endif %}
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="badge primary-category">{{ post.data.primary_category }}</span>
+                <time>{{ post.data.date | postDate }}</time>
+              </div>
+              <h3 class="card-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+              <p class="card-excerpt">{{ post.data.excerpt }}</p>
             </div>
-            <h3 class="card-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
-            <p class="card-excerpt">{{ post.data.excerpt }}</p>
           </div>
           {% set relatedCount = relatedCount + 1 %}
         {% endif %}

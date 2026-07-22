@@ -17,6 +17,13 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  // Custom collection for Bible Study entries
+  eleventyConfig.addCollection("bibleStudy", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/bible-study/**/*.md").sort((a, b) => {
+      return b.date - a.date;
+    });
+  });
+
   return {
     dir: {
       input: "src",

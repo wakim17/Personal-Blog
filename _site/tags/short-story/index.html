@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title | default("The Writings of Jhony Wakim") }}</title>
+    <title>Tagged “Short Story”</title>
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,12 +28,50 @@
     </header>
 
     <main class="main-content">
-      {{ content | safe }}
+      
+<div class="homepage-container container">
+  <section class="about-section" style="margin-bottom: var(--spacing-xl); padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--border-color);">
+    <h1 style="margin-bottom: var(--spacing-md); font-size: 2rem;">Articles tagged with "Short Story"</h1>
+    <p style="font-size: 1.15rem; max-width: 65ch; opacity: 0.9;">
+      <a href="/topics/">← Back to all topics</a>
+    </p>
+  </section>
+
+  <section class="feed-grid">
+    
+    
+      <article class="card" data-category="Creative writing">
+        
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="badge primary-category">Creative writing</span>
+            <time>11 Nov 2020</time>
+          </div>
+          <h2 class="card-title"><a href="/articles/sample-post-2/">A Quiet Life</a></h2>
+          <p class="card-excerpt">Short horror story titled &#39;A Quiet Life&#39;</p>
+        </div>
+      </article>
+    
+      <article class="card" data-category="Creative writing">
+        
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="badge primary-category">Creative writing</span>
+            <time>8 May 2020</time>
+          </div>
+          <h2 class="card-title"><a href="/articles/sample-post/">THE UNEXPECTED GUEST</a></h2>
+          <p class="card-excerpt">What if after WW2, Hitler had a secret son?</p>
+        </div>
+      </article>
+    
+  </section>
+</div>
+
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <p>&copy; {% set currentYear = 2026 %}{{ currentYear }} The Writings of Jhony Wakim</p>
+        <p>&copy; 2026 The Writings of Jhony Wakim</p>
       </div>
     </footer>
 

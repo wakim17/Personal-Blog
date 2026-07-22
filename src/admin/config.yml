@@ -3,6 +3,8 @@ backend:
   repo: wakim17/Personal-Blog
   branch: main
 
+local_backend: true
+
 media_folder: "src/assets/images"
 public_folder: "/assets/images"
 
@@ -15,9 +17,23 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Growth Stage", name: "growth_stage", widget: "select", options: ["Seedling", "Budding", "Evergreen"], default: "Seedling"}
       - {label: "Excerpt", name: "excerpt", widget: "text"}
       - {label: "Thumbnail Image", name: "thumbnail", widget: "image", required: false}
       - {label: "Primary Category", name: "primary_category", widget: "select", options: ["Theology & Religion", "Health & Lifestyle", "Science", "Technology & Innovation", "History", "Theory of Knowledge", "Politics", "Philosophy", "Creative writing"]}
       - {label: "Tags", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}, required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "bible_study"
+    label: "Bible Study"
+    folder: "src/bible-study"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Scripture Reference", name: "passage", widget: "string", required: false}
+      - {label: "Study Category", name: "study_category", widget: "select", options: ["Jesus' Parables", "Gospel Meditations", "Old Testament Surveys", "Epistles & Doctrine", "Psalms & Wisdom", "General Study"], default: "Jesus' Parables"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Thumbnail Image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Tags / Topics", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}, required: false}
       - {label: "Body", name: "body", widget: "markdown"}
