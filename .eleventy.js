@@ -1,9 +1,13 @@
 const { DateTime } = require("luxon");
+const { HtmlBasePlugin } = require("@11ty/eleventy");
 
 module.exports = function(eleventyConfig) {
-  // Pass through copy for CSS, JS, and CMS Admin
+  eleventyConfig.addPlugin(HtmlBasePlugin);
+
+  // Pass through copy for CSS, JS, CMS Admin, and .nojekyll
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPassthroughCopy("src/.nojekyll");
 
   // Filter to format dates
   eleventyConfig.addFilter("postDate", (dateObj) => {
@@ -25,6 +29,7 @@ module.exports = function(eleventyConfig) {
   });
 
   return {
+    pathPrefix: process.env.PATH_PREFIX || "/",
     dir: {
       input: "src",
       output: "_site",
