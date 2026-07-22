@@ -5,7 +5,7 @@ excerpt: William Blake uses biblical imagery and symbolism in The Chimney
   Sweeper and The Little Black Boy to show how religion shapes children's
   understanding of suffering, hope, and equality while criticising the social
   injustices of his time.
-primary_category: History
+primary_category: Literature
 ---
 # Introduction
 
