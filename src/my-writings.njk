@@ -6,12 +6,14 @@ title: My Writings
 {% set categories = ["All", "Theology & Religion", "Health & Lifestyle", "Science", "Technology & Innovation", "History", "Theory of Knowledge", "Politics", "Philosophy", "Creative writing"] %}
 
 <div class="homepage-container container">
+  <h1 class="section-heading">My Writings</h1>
+
   <div class="filter-sort-bar">
-    <section class="category-filters">
-      <ul class="filter-list" id="category-filters">
+    <section class="category-filters" aria-label="Filter articles by category">
+      <ul class="filter-list" id="category-filters" role="tablist" aria-label="Category filters">
         {% for category in categories %}
-          <li>
-            <button class="filter-btn {% if loop.first %}active{% endif %}" data-category="{{ category }}">{{ category }}</button>
+          <li role="presentation">
+            <button class="filter-btn {% if loop.first %}active{% endif %}" role="tab" aria-selected="{% if loop.first %}true{% else %}false{% endif %}" data-category="{{ category }}">{{ category }}</button>
           </li>
         {% endfor %}
       </ul>
@@ -26,7 +28,8 @@ title: My Writings
     </div>
   </div>
 
-  <section class="feed-grid" id="article-feed">
+  <p id="filter-status" class="sr-only" aria-live="polite" role="status"></p>
+  <section class="feed-grid" id="article-feed" aria-label="Articles list">
     {% for post in collections.articles %}
       <article class="card" data-category="{{ post.data.primary_category }}" data-date="{{ post.date.toISOString() }}">
         {% if post.data.thumbnail %}

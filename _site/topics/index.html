@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Topics</title>
+    <meta name="description" content="The personal writings of Jhony Wakim - creative writing, poems, short stories, and Bible studies.">
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,91 +12,92 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <div id="progress-bar"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="progress-bar" aria-hidden="true"></div>
     <header class="site-header">
       <div class="header-inner container">
         <a href="/" class="site-title">The Writings of Jhony Wakim</a>
-        <nav class="site-nav">
+        <nav class="site-nav" aria-label="Main navigation">
           <a href="/my-writings/">My Writings</a>
           <a href="/bible-study/">Bible Study</a>
           <a href="/topics/">Topics</a>
           <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">
-            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg id="moon-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg id="sun-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
           </button>
         </nav>
       </div>
     </header>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       
 <div class="homepage-container container">
-  <section class="about-section" style="margin-bottom: var(--spacing-xl); padding-bottom: var(--spacing-xl); border-bottom: 1px solid var(--border-color);">
-    <h1 style="margin-bottom: var(--spacing-md); font-size: 2rem;">Topics Index</h1>
-    <p style="font-size: 1.15rem; max-width: 65ch; opacity: 0.9;">Explore all the seeds and essays in the garden by their specific topics.</p>
+  <section class="about-section section-intro">
+    <h1 class="section-heading section-heading--sm">Topics Index</h1>
+    <p class="section-description">Explore all the seeds and essays in the garden by their specific topics.</p>
   </section>
 
-  <section class="topics-cloud" style="display: flex; flex-wrap: wrap; gap: var(--spacing-md);">
+  <section class="topics-cloud" aria-label="Browse topics">
     
       
-        <a href="/tags/poem/" class="filter-btn" style="text-decoration: none;">
-          Poem <span style="opacity: 0.7; font-size: 0.8em; margin-left: 4px;">(2)</span>
+        <a href="/tags/poem/" class="filter-btn">
+          Poem <span class="topic-count">(2)</span>
         </a>
       
     
       
-        <a href="/tags/peom/" class="filter-btn" style="text-decoration: none;">
-          Peom <span style="opacity: 0.7; font-size: 0.8em; margin-left: 4px;">(0)</span>
+        <a href="/tags/peom/" class="filter-btn">
+          Peom <span class="topic-count">(0)</span>
         </a>
       
     
       
-        <a href="/tags/short-story/" class="filter-btn" style="text-decoration: none;">
-          Short Story <span style="opacity: 0.7; font-size: 0.8em; margin-left: 4px;">(2)</span>
+        <a href="/tags/short-story/" class="filter-btn">
+          Short Story <span class="topic-count">(2)</span>
         </a>
       
     
       
-        <a href="/tags/jesus-parables/" class="filter-btn" style="text-decoration: none;">
-          Jesus&#39; Parables <span style="opacity: 0.7; font-size: 0.8em; margin-left: 4px;">(1)</span>
+        <a href="/tags/jesus-parables/" class="filter-btn">
+          Jesus&#39; Parables <span class="topic-count">(1)</span>
         </a>
       
     
       
-        <a href="/tags/gospel-of-matthew/" class="filter-btn" style="text-decoration: none;">
-          Gospel of Matthew <span style="opacity: 0.7; font-size: 0.8em; margin-left: 4px;">(1)</span>
+        <a href="/tags/gospel-of-matthew/" class="filter-btn">
+          Gospel of Matthew <span class="topic-count">(1)</span>
         </a>
       
     
       
-        <a href="/tags/kingdom-of-god/" class="filter-btn" style="text-decoration: none;">
-          Kingdom of God <span style="opacity: 0.7; font-size: 0.8em; margin-left: 4px;">(1)</span>
+        <a href="/tags/kingdom-of-god/" class="filter-btn">
+          Kingdom of God <span class="topic-count">(1)</span>
         </a>
       
     
       
-        <a href="/tags/gospel-of-john/" class="filter-btn" style="text-decoration: none;">
-          Gospel of John <span style="opacity: 0.7; font-size: 0.8em; margin-left: 4px;">(1)</span>
+        <a href="/tags/gospel-of-john/" class="filter-btn">
+          Gospel of John <span class="topic-count">(1)</span>
         </a>
       
     
       
-        <a href="/tags/christology/" class="filter-btn" style="text-decoration: none;">
-          Christology <span style="opacity: 0.7; font-size: 0.8em; margin-left: 4px;">(1)</span>
+        <a href="/tags/christology/" class="filter-btn">
+          Christology <span class="topic-count">(1)</span>
         </a>
       
     
       
-        <a href="/tags/spiritual-growth/" class="filter-btn" style="text-decoration: none;">
-          Spiritual Growth <span style="opacity: 0.7; font-size: 0.8em; margin-left: 4px;">(1)</span>
+        <a href="/tags/spiritual-growth/" class="filter-btn">
+          Spiritual Growth <span class="topic-count">(1)</span>
         </a>
       
     
       
     
       
-        <a href="/tags/biblestudy/" class="filter-btn" style="text-decoration: none;">
-          bibleStudy <span style="opacity: 0.7; font-size: 0.8em; margin-left: 4px;">(2)</span>
+        <a href="/tags/biblestudy/" class="filter-btn">
+          bibleStudy <span class="topic-count">(2)</span>
         </a>
       
     

@@ -7,17 +7,17 @@ permalink: /bible-study/
 {% set studyCategories = ["All", "Jesus' Parables", "Gospel Meditations", "Old Testament Surveys", "Epistles & Doctrine", "Psalms & Wisdom", "General Study"] %}
 
 <div class="homepage-container container">
-  <header class="section-intro" style="margin-bottom: var(--spacing-xl); text-align: center;">
-    <h1 style="font-size: 2.25rem; margin-bottom: var(--spacing-sm);">Bible Study Notes & Meditations</h1>
-    <p style="font-size: 1.15rem; max-width: 65ch; margin: 0 auto; opacity: 0.9;">Expository notes, scripture meditations, and theological reflections exploring the eternal truth of God's Word.</p>
+  <header class="section-intro section-intro--no-border section-intro--centered">
+    <h1 class="section-heading">Bible Study Notes & Meditations</h1>
+    <p class="section-description section-description--centered">Expository notes, scripture meditations, and theological reflections exploring the eternal truth of God's Word.</p>
   </header>
 
   <div class="filter-sort-bar">
-    <section class="category-filters">
-      <ul class="filter-list" id="category-filters">
+    <section class="category-filters" aria-label="Filter studies by category">
+      <ul class="filter-list" id="category-filters" role="tablist" aria-label="Category filters">
         {% for cat in studyCategories %}
-          <li>
-            <button class="filter-btn {% if loop.first %}active{% endif %}" data-category="{{ cat }}">{{ cat }}</button>
+          <li role="presentation">
+            <button class="filter-btn {% if loop.first %}active{% endif %}" role="tab" aria-selected="{% if loop.first %}true{% else %}false{% endif %}" data-category="{{ cat }}">{{ cat }}</button>
           </li>
         {% endfor %}
       </ul>
@@ -32,7 +32,8 @@ permalink: /bible-study/
     </div>
   </div>
 
-  <section class="feed-grid" id="article-feed">
+  <p id="filter-status" class="sr-only" aria-live="polite" role="status"></p>
+  <section class="feed-grid" id="article-feed" aria-label="Bible study entries">
     {% for study in collections.bibleStudy %}
       <article class="card" data-category="{{ study.data.study_category | default('General Study') }}" data-date="{{ study.date.toISOString() }}">
         {% if study.data.thumbnail %}
@@ -42,12 +43,12 @@ permalink: /bible-study/
         {% endif %}
         <div class="card-content">
           <div class="card-meta">
-            <div style="display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center;">
+            <div class="badge-meta-row">
               {% if study.data.study_category %}
                 <span class="badge primary-category">{{ study.data.study_category }}</span>
               {% endif %}
               {% if study.data.passage %}
-                <span class="badge" style="background-color: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-color);">📖 {{ study.data.passage }}</span>
+                <span class="badge badge--passage">📖 {{ study.data.passage }}</span>
               {% endif %}
             </div>
             <time datetime="{{ study.date.toISOString() }}">{{ study.date | postDate }}</time>
@@ -57,7 +58,7 @@ permalink: /bible-study/
         </div>
       </article>
     {% else %}
-      <p style="text-align: center; grid-column: 1 / -1; opacity: 0.8; padding: 2rem;">No Bible study entries published yet.</p>
+      <p class="feed-empty">No Bible study entries published yet.</p>
     {% endfor %}
   </section>
 </div>

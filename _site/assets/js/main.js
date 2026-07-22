@@ -17,10 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.setAttribute('data-theme', 'light');
     sunIcon.style.display = 'block';
     moonIcon.style.display = 'none';
+    themeToggleBtn.setAttribute('aria-label', 'Switch to dark mode');
   } else {
     document.documentElement.removeAttribute('data-theme');
     sunIcon.style.display = 'none';
     moonIcon.style.display = 'block';
+    themeToggleBtn.setAttribute('aria-label', 'Switch to light mode');
   }
 
   themeToggleBtn.addEventListener('click', () => {
@@ -31,11 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('theme', 'dark');
       sunIcon.style.display = 'none';
       moonIcon.style.display = 'block';
+      themeToggleBtn.setAttribute('aria-label', 'Switch to light mode');
     } else {
       document.documentElement.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light');
       sunIcon.style.display = 'block';
       moonIcon.style.display = 'none';
+      themeToggleBtn.setAttribute('aria-label', 'Switch to dark mode');
     }
   });
 
@@ -46,22 +50,33 @@ document.addEventListener('DOMContentLoaded', () => {
   if (filterBtns.length > 0 && articles.length > 0) {
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterBtns.forEach(b => b.classList.remove('active'));
-        // Add active class to clicked button
+        // Update active and aria-selected state
+        filterBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
 
         const selectedCategory = btn.getAttribute('data-category');
+        let visibleCount = 0;
 
         articles.forEach(article => {
           const articleCategory = article.getAttribute('data-category');
 
           if (selectedCategory === 'All' || selectedCategory === articleCategory) {
             article.classList.remove('hidden');
+            visibleCount++;
           } else {
             article.classList.add('hidden');
           }
         });
+
+        // Announce filtered results to screen readers
+        const liveRegion = document.getElementById('filter-status');
+        if (liveRegion) {
+          liveRegion.textContent = `Showing ${visibleCount} of ${articles.length} articles`;
+        }
       });
     });
   }

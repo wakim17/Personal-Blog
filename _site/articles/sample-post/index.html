@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>THE UNEXPECTED GUEST</title>
+    <meta name="description" content="What if after WW2, Hitler had a secret son?">
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,23 +12,24 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <div id="progress-bar"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="progress-bar" aria-hidden="true"></div>
     <header class="site-header">
       <div class="header-inner container">
         <a href="/" class="site-title">The Writings of Jhony Wakim</a>
-        <nav class="site-nav">
+        <nav class="site-nav" aria-label="Main navigation">
           <a href="/my-writings/">My Writings</a>
           <a href="/bible-study/">Bible Study</a>
           <a href="/topics/">Topics</a>
           <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">
-            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg id="moon-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg id="sun-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
           </button>
         </nav>
       </div>
     </header>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       
 <article class="post-container">
   <header class="post-header">
@@ -35,7 +37,7 @@
       <span class="badge primary-category">Creative writing</span>
       <time datetime="Fri May 08 2020 12:00:00 GMT+0200 (Central European Summer Time)">8 May 2020</time>
       <button id="view-toggle" class="view-toggle-btn" aria-label="Toggle Wide Reading View" title="Toggle Wide Reading View">
-        <svg class="view-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="view-toggle-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="15 3 21 3 21 9"></polyline>
           <polyline points="9 21 3 21 3 15"></polyline>
           <line x1="21" y1="3" x2="14" y2="10"></line>
@@ -88,7 +90,7 @@
             <div class="card-content">
               <div class="card-meta">
                 <span class="badge primary-category">Creative writing</span>
-                <time>12 Sept 2021</time>
+                <time datetime="2021-09-12T13:47:00.000Z">12 Sept 2021</time>
               </div>
               <h3 class="card-title"><a href="/articles/2021-09-12-poor-friend/">Poor Friend</a></h3>
               <p class="card-excerpt">Creative piece of why suicide is not the right way to go.</p>
@@ -112,7 +114,7 @@
             <div class="card-content">
               <div class="card-meta">
                 <span class="badge primary-category">Creative writing</span>
-                <time>11 Nov 2020</time>
+                <time datetime="2020-11-11T11:00:00.000Z">11 Nov 2020</time>
               </div>
               <h3 class="card-title"><a href="/articles/sample-post-2/">A Quiet Life</a></h3>
               <p class="card-excerpt">Short horror story titled &#39;A Quiet Life&#39;</p>
@@ -138,7 +140,7 @@
             <div class="card-content">
               <div class="card-meta">
                 <span class="badge primary-category">Creative writing</span>
-                <time>15 Jun 2018</time>
+                <time datetime="2018-06-15T13:43:00.000Z">15 Jun 2018</time>
               </div>
               <h3 class="card-title"><a href="/articles/2018-06-15-a-slaves-story/">A Slave&#39;s story</a></h3>
               <p class="card-excerpt">Poem on a slave&#39;s perspective</p>

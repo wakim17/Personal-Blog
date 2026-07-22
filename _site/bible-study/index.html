@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bible Study</title>
+    <meta name="description" content="The personal writings of Jhony Wakim - creative writing, poems, short stories, and Bible studies.">
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,62 +12,63 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <div id="progress-bar"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="progress-bar" aria-hidden="true"></div>
     <header class="site-header">
       <div class="header-inner container">
         <a href="/" class="site-title">The Writings of Jhony Wakim</a>
-        <nav class="site-nav">
+        <nav class="site-nav" aria-label="Main navigation">
           <a href="/my-writings/">My Writings</a>
           <a href="/bible-study/">Bible Study</a>
           <a href="/topics/">Topics</a>
           <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">
-            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg id="moon-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg id="sun-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
           </button>
         </nav>
       </div>
     </header>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       
 
 
 <div class="homepage-container container">
-  <header class="section-intro" style="margin-bottom: var(--spacing-xl); text-align: center;">
-    <h1 style="font-size: 2.25rem; margin-bottom: var(--spacing-sm);">Bible Study Notes & Meditations</h1>
-    <p style="font-size: 1.15rem; max-width: 65ch; margin: 0 auto; opacity: 0.9;">Expository notes, scripture meditations, and theological reflections exploring the eternal truth of God's Word.</p>
+  <header class="section-intro section-intro--no-border section-intro--centered">
+    <h1 class="section-heading">Bible Study Notes & Meditations</h1>
+    <p class="section-description section-description--centered">Expository notes, scripture meditations, and theological reflections exploring the eternal truth of God's Word.</p>
   </header>
 
   <div class="filter-sort-bar">
-    <section class="category-filters">
-      <ul class="filter-list" id="category-filters">
+    <section class="category-filters" aria-label="Filter studies by category">
+      <ul class="filter-list" id="category-filters" role="tablist" aria-label="Category filters">
         
-          <li>
-            <button class="filter-btn active" data-category="All">All</button>
+          <li role="presentation">
+            <button class="filter-btn active" role="tab" aria-selected="true" data-category="All">All</button>
           </li>
         
-          <li>
-            <button class="filter-btn " data-category="Jesus&#39; Parables">Jesus&#39; Parables</button>
+          <li role="presentation">
+            <button class="filter-btn " role="tab" aria-selected="false" data-category="Jesus&#39; Parables">Jesus&#39; Parables</button>
           </li>
         
-          <li>
-            <button class="filter-btn " data-category="Gospel Meditations">Gospel Meditations</button>
+          <li role="presentation">
+            <button class="filter-btn " role="tab" aria-selected="false" data-category="Gospel Meditations">Gospel Meditations</button>
           </li>
         
-          <li>
-            <button class="filter-btn " data-category="Old Testament Surveys">Old Testament Surveys</button>
+          <li role="presentation">
+            <button class="filter-btn " role="tab" aria-selected="false" data-category="Old Testament Surveys">Old Testament Surveys</button>
           </li>
         
-          <li>
-            <button class="filter-btn " data-category="Epistles &amp; Doctrine">Epistles &amp; Doctrine</button>
+          <li role="presentation">
+            <button class="filter-btn " role="tab" aria-selected="false" data-category="Epistles &amp; Doctrine">Epistles &amp; Doctrine</button>
           </li>
         
-          <li>
-            <button class="filter-btn " data-category="Psalms &amp; Wisdom">Psalms &amp; Wisdom</button>
+          <li role="presentation">
+            <button class="filter-btn " role="tab" aria-selected="false" data-category="Psalms &amp; Wisdom">Psalms &amp; Wisdom</button>
           </li>
         
-          <li>
-            <button class="filter-btn " data-category="General Study">General Study</button>
+          <li role="presentation">
+            <button class="filter-btn " role="tab" aria-selected="false" data-category="General Study">General Study</button>
           </li>
         
       </ul>
@@ -81,18 +83,19 @@
     </div>
   </div>
 
-  <section class="feed-grid" id="article-feed">
+  <p id="filter-status" class="sr-only" aria-live="polite" role="status"></p>
+  <section class="feed-grid" id="article-feed" aria-label="Bible study entries">
     
       <article class="card" data-category="Jesus&#39; Parables" data-date="2026-07-22T11:00:00.000Z">
         
         <div class="card-content">
           <div class="card-meta">
-            <div style="display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center;">
+            <div class="badge-meta-row">
               
                 <span class="badge primary-category">Jesus&#39; Parables</span>
               
               
-                <span class="badge" style="background-color: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-color);">📖 Matthew 13:1–23</span>
+                <span class="badge badge--passage">📖 Matthew 13:1–23</span>
               
             </div>
             <time datetime="2026-07-22T11:00:00.000Z">22 Jul 2026</time>
@@ -106,12 +109,12 @@
         
         <div class="card-content">
           <div class="card-meta">
-            <div style="display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center;">
+            <div class="badge-meta-row">
               
                 <span class="badge primary-category">Gospel Meditations</span>
               
               
-                <span class="badge" style="background-color: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-color);">📖 John 8:12</span>
+                <span class="badge badge--passage">📖 John 8:12</span>
               
             </div>
             <time datetime="2026-07-22T10:00:00.000Z">22 Jul 2026</time>
